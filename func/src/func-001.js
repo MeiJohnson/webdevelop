@@ -1,3 +1,6 @@
+/**
+ * Выводит номера rgb цветовой палитры
+ */ 
 const concat = require('goss_concat');
 let r = 255;
 let g = 255;
