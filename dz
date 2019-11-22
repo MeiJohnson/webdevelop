@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <!-- <script src="/j/out"></script> -->
+  <!-- <script src="/j/barewebber"></script> -->
+  <script src="/socket.io/socket.io.js"></script>
+  <title>Онлайн-лекция 14.11.2019</title><meta charset="utf-8"><meta name="author" content="Ilya Gosudarev"><link rel="stylesheet" href="/css/board2"><link rel="stylesheet" href="/css/highcss_atom"><script src="/j/clicker"></script>
+ </head>
+ <body>
+  <script src="/j/dblttl"></script>
+  <script src="/high.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+   
+  <pre class="task">
+    1. Функциональный подход к работе с DOM
+
+    2. Задание  
+
+     <a target="_blank" href="/g/dom_task">Задание по DOM</a>  
+    <hr>
+    Далее – клиентские шаблонизаторы
+  </pre> 
+   <script>{
+  new Clicker(async () => {
+  
+document
+.body
+.appendChild(document.createElement('button'))
+.appendChild(document.createTextNode('Я вторая кнопка'));  
+
+}, caption='Щёлкни');
+
+}</script> 
+
+<script>{
+  new Clicker(async () => {
+	URL = 'https://kodaktor.ru/books_list'
+   const result = await fetch(URL)
+  .then(x => x.text());
+   const f = x => x.text();
+   const pars = new DOMParser();
+   const doc = pars.parseFromString(result, 'text/html');
+   const book_table = doc.querySelectorAll('book');
+   const tab = document.appendChild.createElement('table'))
+  book_table.forEach(x => {
+    const tr1 = tab.appendChild(createElement('tr'))
+    tr1
+    .appendChild.createElem('td')
+    .appendChild(document.createTextNode(x.firstChild.firstChild.textContent));
+    
+  
+  })
+  
+}, caption='Таблица');
+
+}</script>
+ 
+   
+   const mime = 'text/html';
+const p = new DOMParser();
+const f = x => x.text();
+const doc = p.parseFromString(await fetch(`/api/up/${s}`).then(f), mime)  
+
+}, caption='Щёлкни');
+  
+ </body>
+</html>
+
+
+
+<!-- 
+
+Blue Menu командра Refresh для перезагрузки
+как замена фигурных скобок в script
+
+На забудь изменить title
+
+--> 
