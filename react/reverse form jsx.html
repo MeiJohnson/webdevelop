@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <meta charset="utf-8" /><title>react_double_bind2</title> 
+    <script src="/rb/bbl6.26.js"></script>  
+    <script src="/rb/rct16.10.js"></script>
+    <script src="/rb/rdom16.10.js"></script></head>
+  <body>
+    <script type="text/babel">
+        const [{render: r}, { useState, useEffect }] = [ReactDOM, React];
+        const rv = x => x.split('').reverse().join('');
+        function DoubleBind() {
+            const [value, setValue] = useState('Начальное значение');
+            const changeText = ({target: { value }}) => setValue(value);
+            return (
+                     <div>
+                       <input value={value} onChange={changeText} />
+                       <input value={rv(value)} />
+                     </div>
+            );
+        }        
+        
+        r(
+            <div><DoubleBind /></div>,
+            document.body
+        );
+    </script>
+  </body>
+</html>
+
+
+<!-- 
+
+  https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js  
+  https://cdnjs.cloudflare.com/ajax/libs/react/16.10.0/umd/react.production.min.js
+  https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.10.0/umd/react-dom.production.min.js
+
+--> 

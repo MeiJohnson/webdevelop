@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>JavaScript</title><meta charset="utf-8"><style>td {border: 5px ridge }</style>
+ </head>
+ <body>
+    <script src="/j/out"></script>
+    <script src="/j/dblttl"></script><script src="/j/clicker"></script>
+    <script>{ console.clear();
+const imageTab = document.body.appendChild(document.createElement('table'))
+imageTab.appendChild(document.createElement('tr'))
+.appendChild(document.createElement('td'));
+
+imageTab
+.firstChild
+.appendChild(document.createElement('td'));
+
+imageTab
+.firstChild
+.appendChild(document.createElement('td'));
+
+const newImage1 = document.createElement('img');
+const imageName1 = 'https://github.com/MeiJohnson/pictures/blob/master/fox1_thumbnail.png?raw=true';         
+newImage1.src = newImage1.data = imageName1;
+newImage1.title = 'Лисичка'
+imageTab
+.firstChild.firstChild.appendChild(newImage1);
+
+newImage1.addEventListener('click', ({ target: t }) => {
+const newImage1big = document.createElement('img');
+const tempArray = t.data.split('_')[0];
+    newImage1big.src = tempArray+ '_real.png?raw=true';        
+
+newImage1big.title = 'Лисичка'
+imageTab
+.firstChild.firstChild.appendChild(newImage1big);
+});
+
+const newImage2 = document.createElement('img');
+const imageName2 = 'https://github.com/MeiJohnson/pictures/blob/master/fox2_thumbnail.png?raw=true';         
+newImage2.src = newImage2.data = imageName2;
+newImage2.title = 'Лисичка'
+imageTab
+.firstChild
+.firstChild
+.nextSibling
+.appendChild(newImage2);
+
+newImage2.addEventListener('click', ({ target: t }) => {
+  const newImage2big = document.createElement('img');
+const tempArray2 = t.data.split('_')[0];
+    newImage2big.src = tempArray2+ '_real.png?raw=true';        
+
+newImage2big.title = 'Лисичка'
+imageTab
+.firstChild
+.firstChild
+.nextSibling
+.appendChild(newImage2big); 
+});
+
+       
+const newImage3 = document.createElement('img');
+const imageName3 = 'https://github.com/MeiJohnson/pictures/blob/master/fox3_thumbnail.png?raw=true';         
+newImage3.src = newImage3.data = imageName3;
+newImage3.title = 'Лисичка'
+
+imageTab
+.firstChild
+.lastChild
+.appendChild(newImage3);
+
+newImage3.addEventListener('click', ({ target: t }) => {
+  const newImage3big = document.createElement('img');
+const tempArray3 = t.data.split('_')[0];
+    newImage3big.src = tempArray3+ '_real.png?raw=true';        
+
+newImage3big.title = 'Лисичка'
+imageTab
+.firstChild
+.lastChild
+.appendChild(newImage3big); 
+});     
+
+  
+      }</script>
+ </body>
+</html>
+
+
+<!-- https://kodaktor.ru/js01_d -->

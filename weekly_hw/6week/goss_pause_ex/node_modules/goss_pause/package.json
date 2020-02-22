@@ -1,0 +1,9 @@
+{
+  "name": "goss_pause",
+  "description": "Goss Blocking Pauser",
+  "version": "1.0.1",
+  "main": "./index.js",
+  "license": "MIT",
+  "repository": "https://github.com/GossJS/goss_pause.git",
+  "author": "GossJS"
+}

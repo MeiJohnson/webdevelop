@@ -1,0 +1,1 @@
+console.log(parseInt('A', 16));

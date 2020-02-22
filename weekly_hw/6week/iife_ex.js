@@ -1,0 +1,1 @@
+(x => x())(() => console.log('Вызов как IIFE через IIFE'));
