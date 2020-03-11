@@ -4,6 +4,10 @@
     const prices_lst = await fetch(url).then(x =>x.text());
     const prices_json = JSON.parse(prices_lst);
     console.log(prices_json);
+     // Счетчики
+    let sum = 0;
+    let budget = Number(document.getElementById('budget').innerHTML);
+    const c_budget = Number(document.getElementById('budget').innerHTML);
 
     const ist = document.querySelectorAll('.prodcap'), pri = document.querySelector('#cart');
  
@@ -22,22 +26,36 @@
       el.append(product_price);
     }  
     pri.addEventListener('dragover', e => e.preventDefault());
-    pri.addEventListener('drop', e => e.target.appendChild(document.getElementById(e.dataTransfer.getData('text/plain')).cloneNode(true)));
-
-    // counting price
-    let sum = 0;
-    let budget = Number(document.getElementById('budget').innerHTML);
-    const c_budget = Number(document.getElementById('budget').innerHTML);
-    
+// Добавление в корзину 
     pri.addEventListener('drop', (e) => {
-      const drag_el = document.getElementById(e.dataTransfer.getData('text/plain'))
+      drag_el = document.getElementById(e.dataTransfer.getData('text/plain')).cloneNode(true);
+      const remove_cross = document.createElement('button');
+      
+      remove_cross.setAttribute('class','remove_cross');
+      remove_cross.addEventListener('click', (e) => {
+        pri.removeChild(this);
+        sum -= Number(drag_el.lastChild.textContent);
+        budget += Number(drag_el.lastChild.textContent);
+        document.getElementById('budget').textContent = budget;
+        document.getElementById('num').textContent = sum; 
+      });
+      drag_el.appendChild(remove_cross);
+      e.target.appendChild(drag_el);
+    });
+
+   
+    
+    // Счётчик цен в корзине
+    pri.addEventListener('drop', (e) => {
+      const drag_el = document.getElementById(e.dataTransfer.getData('text/plain'));
       if (sum + Number(drag_el.lastChild.textContent) <= c_budget)
         sum += Number(drag_el.lastChild.textContent);
       document.getElementById('num').textContent = sum;
       });
-
+    
+    // Счётчик бюджета
     pri.addEventListener('drop', (e) => {
-      const drag_el = document.getElementById(e.dataTransfer.getData('text/plain'))
+      const drag_el = document.getElementById(e.dataTransfer.getData('text/plain'));
       const temp_price = drag_el.lastChild.textContent
       if (budget >= Number(temp_price)){
         budget -= Number(temp_price)
