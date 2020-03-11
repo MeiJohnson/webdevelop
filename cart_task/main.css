@@ -1,0 +1,45 @@
+#cart{
+    background: rgb(158, 168, 224); 
+    width: auto;
+    height: auto; 
+    border: 4px silver dashed; 
+    border-radius: 10px; 
+    padding: 10px; 
+    font-size: 20px;
+    position: fixed;
+}
+.product{ 
+    margin-top: 10px;
+    width: 100px;
+}
+.prodcap {
+    display: inline-block;
+    width: 100px;
+    margin: 10px;
+    height: 160px;
+    border: 2px silver solid;
+    border-radius: 5px;
+    background-color: lightgrey;
+}
+.pr_name, .pr_price{
+    text-align: center;
+}
+#list{
+    padding: 0px;
+}
+.money{
+    border: 4px silver dashed; 
+    border-radius: 10px;
+    background-color: lightgrey;
+    width: fit-content;
+    display: inline-block;
+    position: absolute;
+}
+#m1{
+    left: 10px;
+    top: 10px;
+}
+#m2{
+    left: 250px;
+    top: 10px;
+}
