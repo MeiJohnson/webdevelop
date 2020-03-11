@@ -28,7 +28,7 @@
     let sum = 0;
     let budget = Number(document.getElementById('budget').innerHTML);
     const c_budget = Number(document.getElementById('budget').innerHTML);
-    console.log(budget);
+    
     pri.addEventListener('drop', (e) => {
       const drag_el = document.getElementById(e.dataTransfer.getData('text/plain'))
       if (sum + Number(drag_el.lastChild.textContent) <= c_budget)

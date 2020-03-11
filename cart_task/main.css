@@ -1,12 +1,14 @@
 #cart{
     background: rgb(158, 168, 224); 
-    width: auto;
+    width: 60%;
     height: auto; 
     border: 4px silver dashed; 
     border-radius: 10px; 
     padding: 10px; 
     font-size: 20px;
     position: fixed;
+    display: flex;
+  
 }
 .product{ 
     margin-top: 10px;
@@ -26,13 +28,13 @@
 }
 #list{
     padding: 0px;
+    display: flex;
 }
 .money{
     border: 4px silver dashed; 
     border-radius: 10px;
     background-color: lightgrey;
     width: fit-content;
-    display: inline-block;
     position: absolute;
 }
 #m1{
