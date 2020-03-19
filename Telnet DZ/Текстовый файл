@@ -1,0 +1,1 @@
+curl -X POST https://fork.kodaktor.ru/mystery?Nyukhalov-Litovchenko-Tsarulkova -d "https://raw.githubusercontent.com/DenisNyux/crypto_sas/master/result" -H "Content-Type:multipart/form-data"
