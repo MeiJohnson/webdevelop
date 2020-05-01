@@ -1,0 +1,28 @@
+
+
+
+<script>
+@Component({
+  selector: 'reactive-form-example',
+  templateUrl: './reactive-form-example.component.html'
+})
+export class ReactiveFormExampleComponent {
+  buyTicketForm: FormGroup
+
+  constructor() {
+    this._createForm()
+  }
+
+  private _createForm() {
+    this.buyTicketForm = new FormGroup({
+      passenger: new FormControl(null),
+      passengerAge: new FormControl(null),
+
+      passengerContacts: new FormGroup({
+        telegram: new FormControl(null),
+        whatsapp: new FormControl(null)
+      })
+    })
+  }
+}
+</script>
