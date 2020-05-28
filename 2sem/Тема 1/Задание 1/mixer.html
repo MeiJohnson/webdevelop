@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Миксер цветов</title><meta charset="utf-8">
+ </head>
+ <body>
+  <form style='display: inline-block;'>
+    r:<input id='rnum' value='255' type='number' min='0' max='255'><input id='rrang' value='255' type='range' min='0' max='255'>
+    <br/>
+    g:<input id='gnum' value='255' type='number' min='0' max='255'><input id='grang' value='255' type='range' min='0' max='255'>
+    <br/>
+    b:<input id='bnum' value='255' type='number' min='0' max='255'><input id='brange' value='255' type='range' min='0' max='255'>
+  </form>
+   <canvas style='border: 1px solid black; display: inline-block;'>
+    <p>Ваш браузер не поддерживает рисование.</p>  
+   </canvas>
+  <form id='value' style='margin:5px 0px 0px 0px'>
+   <label for='dec'>Dec</label>
+   <input type='text' id='dec'>
+   
+   <label for='hex'>Hex</label>
+   <input type='text' id='hex'>
+  </form>
+ </body>
+   <script>
+    {
+      const inpNum = document.querySelectorAll("input[type='number']");
+      const inpRang = document.querySelectorAll("input[type='range']");
+      const drawCanvas = document.querySelector('canvas');
+      drawCanvas.width = '200';
+	  drawCanvas.height = '100';
+      
+      function mixColour() {
+        let r = inpNum[0].value; inpRang[0].value = r;
+        let g = inpNum[1].value; inpRang[1].value = g;
+        let b = inpNum[2].value; inpRang[2].value = b;
+        
+        const dec = document.getElementById('dec').value = 'rgb('+r+', '+g+', '+b+')';
+        
+        const canva = document.querySelector('canvas');
+        let ctx = canva.getContext('2d');
+        r = Number(r).toString(16);
+        g = Number(g).toString(16);
+        b = Number(b).toString(16);
+         
+        inpNum[0].style = ' background-color:'+ '#'+r+'00'+'00';
+        inpNum[1].style = ' background-color:'+ '#'+'00'+g+'00';
+        inpNum[2].style = ' background-color:'+ '#'+'00'+'00'+b;
+        
+        
+        const hex = document.getElementById('hex').value = '#'+r+g+b;
+        
+        ctx.fillStyle = '#'+r+g+b;
+		ctx.fillRect(0, 0, 300, 100);	
+        ctx.fill();
+       }
+      
+      function mixColour2() {
+        let r = inpRang[0].value; inpNum[0].value = r;
+        let g = inpRang[1].value; inpNum[1].value = g;
+        let b = inpRang[2].value; inpNum[2].value = b;
+        
+        const dec = document.getElementById('dec').value = 'rgb('+r+', '+g+', '+b+')';
+        
+        const canva = document.querySelector('canvas');
+        let ctx = canva.getContext('2d');
+        r = Number(r).toString(16);
+        g = Number(g).toString(16);
+        b = Number(b).toString(16);
+        
+        inpNum[0].style = ' background-color:'+ '#'+r+'00'+'00';
+        inpNum[1].style = ' background-color:'+ '#'+'00'+g+'00';
+        inpNum[2].style = ' background-color:'+ '#'+'00'+'00'+b;
+        
+        document.getElementById('hex').value = '#'+r+g+b;
+        
+        ctx.fillStyle = '#'+r+g+b;
+		ctx.fillRect(0, 0, 300, 100);	
+        ctx.fill();
+       }
+      
+      inpNum[0].onchange = mixColour;
+      inpNum[1].onchange = mixColour;
+      inpNum[2].onchange = mixColour;
+      
+      inpRang[0].onchange = mixColour2;
+      inpRang[1].onchange = mixColour2;
+      inpRang[2].onchange = mixColour2;
+    }
+   </script>
+</html>
+
+<!-- https://kodaktor.ru/?!=mymixer_0af0f -->

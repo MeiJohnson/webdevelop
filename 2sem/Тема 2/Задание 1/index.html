@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>JavaScript</title><meta charset="utf-8">
+ </head>
+ <body>
+    <script src="/j/clicker"></script>
+    <script src="/j/out"></script>
+    <script src="/j/dblttl"></script>
+    <script>{ console.clear();
+      function makeCanvas(x, y) {
+ 		const canvas = document.createElement('canvas'),
+ 		ctx = canvas.getContext('2d');
+ 		canvas.setAttribute('width', x);
+ 		canvas.setAttribute('height', y);
+        
+ 		return { canvas, ctx };
+			}
+             let aMatrix = [[100,50],[50,100],[50,200],[100,200],[100,50],[50,150],[100,150]];
+             let bMatrix = [[150,50],[150,200],[200,200],[200,150],[150,120],[200,120],[200,80],[150,50]];
+             let dot1Matrix = [[110,200],[110,190],[120,190],[120,200],[110,200]];
+      new Clicker(async () => {
+		// код			
+		   
+    	const { canvas, ctx } = makeCanvas(300, 400);
+    	document.body.appendChild(canvas);     
+    	ctx.strokeStyle ='blue';
+        // A
+        ctx.moveTo(100,50);
+        ctx.lineTo(50,100);
+        ctx.lineTo(50,200);
+        ctx.moveTo(100,200);
+        ctx.lineTo(100,50);
+        ctx.moveTo(50,150);
+        ctx.lineTo(100,150);
+        // B
+        ctx.moveTo(150,50);
+        ctx.lineTo(150,200);
+		ctx.lineTo(200,200);
+        ctx.lineTo(200,150);   
+		ctx.lineTo(150,120);
+        ctx.lineTo(200,120); 
+        ctx.lineTo(200,80);
+        ctx.lineTo(150,50);
+		
+         // dots
+        ctx.moveTo(110,200);
+        ctx.lineTo(110,190);
+        ctx.lineTo(120,190);
+        ctx.lineTo(120,200);
+        ctx.lineTo(110,200);
+       
+  
+        ctx.moveTo(210,200);
+        ctx.lineTo(210,190);
+        ctx.lineTo(220,190);
+        ctx.lineTo(220,200);
+        ctx.lineTo(210,200);
+        ctx.stroke();
+           
+        //curve
+        //ctx.lineWidth = 6;
+		ctx.strokeStyle = '#83A';
+        ctx.beginPath();
+		ctx.moveTo(50,210);
+        ctx.bezierCurveTo(80, 250, 170, 250, 200, 210);
+		ctx.stroke();
+        //ctx.closePath();
+      }, 'Щёлкни');      
+  	 
+      new Clicker(async () => {
+     	const canva = document.querySelector('canvas');
+      	ctx = canva.getContext('2d');
+      	ctx.clearRect(0,0,300,400);
+      	ctx.strokeStyle ='blue';
+      	ctx.beginPath();
+        let nx,ny;
+      	const ang = 90*Math.PI/180;
+      	//A
+        for(let i = 0;i<7;i++){
+        	nx = Math.cos(ang)*aMatrix[i][0]-Math.sin(ang)*aMatrix[i][1];
+      		ny = Math.sin(ang)*aMatrix[i][0]+Math.cos(ang)*aMatrix[i][1];
+           console.log(nx,ny);
+           aMatrix[i][0] = nx;
+           aMatrix[i][1] = ny;
+        };                                       
+      	ctx.moveTo(Math.round(aMatrix[0][0]),Math.round(aMatrix[0][1]));
+      	ctx.lineTo(Math.round(aMatrix[1][0]),Math.round(aMatrix[1][1]));
+        ctx.lineTo(Math.round(aMatrix[2][0]),Math.round(aMatrix[2][1]));
+      	ctx.moveTo(Math.round(aMatrix[3][0]),Math.round(aMatrix[3][1]));
+        ctx.lineTo(Math.round(aMatrix[4][0]),Math.round(aMatrix[4][1]));
+        ctx.moveTo(Math.round(aMatrix[5][0]),Math.round(aMatrix[5][1]));
+        ctx.lineTo(Math.round(aMatrix[6][0]),Math.round(aMatrix[6][1]));
+      
+      //B
+      	for(let i = 0;i<8;i++){
+        	nx = Math.cos(ang)*bMatrix[i][0]-Math.sin(ang)*bMatrix[i][1];
+      		ny = Math.sin(ang)*bMatrix[i][0]+Math.cos(ang)*bMatrix[i][1];
+           console.log(nx,ny);
+           bMatrix[i][0] = nx;
+           bMatrix[i][1] = ny;
+        };	
+      	ctx.moveTo(Math.round(bMatrix[0][0]),Math.round(bMatrix[0][1]));
+      	for(let i = 1;i<8;i++){
+        	ctx.lineTo(Math.round(bMatrix[i][0]),Math.round(bMatrix[i][1]));
+        };
+     
+      	ctx.stroke();
+      
+      	
+     },'Щёлкни чтобы повернуть');
+    }</script>
+ </body>
+</html>
+
+
+<!-- 
+https://kodaktor.ru/?!=click_9fd68
+--> 
