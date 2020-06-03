@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    <script>{
+        fetch('https://kodaktor.ru/j/rates').then(x  => x.text())
+        .then(x=>{
+            elem = document.createElement('p');
+            elem.textContent = x;
+            document.body.appendChild(elem);
+        })
+        }</script>
+    </body>
+</html> 
