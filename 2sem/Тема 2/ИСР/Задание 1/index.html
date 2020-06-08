@@ -1,0 +1,42 @@
+ <!doctype html>
+<html>
+	<head>
+		<title>canvasExample</title>
+        <meta charset='utf-8' />
+	</head>
+	<body>
+        <canvas height='320' width='480' id='pic'>Обновите браузер</canvas>
+        <br/>
+        <input type="text" value="Image link"/>
+        <button>Поменять картинку</button>
+
+		<script>
+            const button = document.querySelector('button');
+            const form = document.querySelector('input');
+            
+            const changeImg = function() {
+                const p = document.getElementById("pic"),
+                ctx2 = p.getContext('2d'), 
+                pict = new Image();
+                
+                
+                const url = form.value;
+                
+                console.log(url)              
+                
+                pict.src = url;  
+                pict.onload = function() {   
+                ctx2.drawImage(pict, 0, 0);  
+                }
+            }
+            button.addEventListener('click', changeImg);
+            const picture = document.getElementById("pic"),
+            ctx = picture.getContext('2d'), 
+            pic = new Image();              
+            pic.src = 'https://teatao.by/img/cms/Пуэр.jpg';  
+            pic.onload = function() {   
+            ctx.drawImage(pic, 0, 0);  
+            }     
+		</script>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+input {
+    display: block;
+}
+
+#captcha {
+    padding: 5px;
+    border: 1px solid salmon;
+    width: 200px;
+    border-radius: 5px;
+    background-color: blanchedalmond;
+}
+
+canvas {
+    border: 1px solid salmon;
+}

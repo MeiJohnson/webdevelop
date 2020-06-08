@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ISR 2.1</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <canvas height='480' width='480' id='info'>Обновите браузер</canvas>
+    <button id='but'>Показать диаграмму</button>
+    <script>
+        function diagram(){
+        var data = [ 120, 45, 22, 70, 50 ]; 
+        
+        const graph = document.getElementById('info'),
+        ctx = graph.getContext('2d');
+        
+        const colors = [ '#d92027', '#ff9234', '#ffcd3c', '#35d0ba', '#1b6ca8'];
+        let sum = 0; 
+        for(let i=0; i<data.length; i++) { 
+            sum += data[i]; 
+        };
+        let prevAngle = 0; 
+        for(let i=0; i<data.length; i++) { 
+  
+            let fraction = data[i]/sum; 
+  
+            let angle = prevAngle + fraction*Math.PI*2; 
+  
+            ctx.fillStyle = colors[i]; 
+  
+            ctx.beginPath(); 
+            ctx.moveTo(250,250); 
+            ctx.arc(250,250, 100, prevAngle, angle, false); 
+            ctx.lineTo(250,250); 
+  
+            ctx.fill(); 
+  
+            ctx.strokeStyle = "black"; 
+            ctx.stroke(); 
+  
+            prevAngle = angle; 
+        };
+
+        ctx.fillStyle = "black"; 
+        ctx.font = "25pt sans-serif"; 
+        const text = "Продано чая с 2015 по 2020"; 
+        const metric = ctx.measureText(text); 
+        ctx.fillText(text, 250-metric.width/2, 400); 
+        }
+
+        const b = document.getElementById('but');
+        b.addEventListener('click', diagram);
+    </script>
+</body>
+</html>
