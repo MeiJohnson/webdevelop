@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>Кастомные элементы</title><meta charset="utf-8">
+ </head>
+ <body>
+  <article>
+    <h1>Кастомные элементы</h1>
+    <x-cntr val="1"></x-cntr> <x-cntr val="16"></x-cntr>
+  </article><script>{
+  async(const url = 'https://kodaktor.ru/j/react5b_6cbf2';
+  const f = await fetch(url).then(x => x.json());
+  class Counter extends HTMLElement { 
+    super();
+    const shadow = this.attachShadow({mode: 'open'});
+	const count = 
+    shadow.innerHTML = '<button>✬</button>';
+    this.addEventListener('click', () => {
+    
+        });
+     } 
+  }
+  customElements.define('x-cntr', Counter);
+
+})()</script>
+   
+   <p><a target="_blank" href="https://component.kitchen/blog/posts/a-history-of-the-html-slot-element">История о слотах</a></p>
+ </body>
+</html> 
